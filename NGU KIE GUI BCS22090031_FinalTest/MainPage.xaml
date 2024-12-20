@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:local="clr-namespace:NGU_KIE_GUI_BCS22090031_FinalTest.Converters"
+             x:Class="NGU_KIE_GUI_BCS22090031_FinalTest.MainPage"
+             BackgroundColor="Gray">
+
+    <ContentPage.Resources>
+        <local:ValueToTextConverter x:Key="ValueToTextConverter" />
+        <local:ValueToColorConverter x:Key="ValueToColorConverter" />
+        <local:DoubleToIntegerConverter x:Key="DoubleToIntegerConverter"/>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <Grid VerticalOptions="CenterAndExpand"
+              RowDefinitions="*,*"
+              ColumnDefinitions="auto,*"
+              Margin="4"
+              
+              BackgroundColor="White">
+            <!-- Label showing Slider Value -->
+            <Label x:Name="label1"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Text="{Binding Source={x:Reference slider1}, Path=Value, Converter={StaticResource DoubleToIntegerConverter}}" 
+                   HorizontalOptions="CenterAndExpand" />
+
+            <!-- Slider -->
+            <Slider x:Name="slider1"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Minimum="0"
+                    Maximum="100"
+                    HorizontalOptions="FillAndExpand" />
+
+            <!-- Label showing Status (Failed, Passed, Excellent) -->
+            <Label x:Name="label2"
+                   Grid.Row="1"
+                   Grid.ColumnSpan="2"
+                   Text="{Binding Source={x:Reference slider1}, Path=Value, Converter={StaticResource ValueToTextConverter}}"
+                   TextColor="{Binding Source={x:Reference slider1}, Path=Value, Converter={StaticResource ValueToColorConverter}}"
+                   HorizontalOptions="CenterAndExpand" />
+        </Grid>
+    </StackLayout>
+
+</ContentPage>

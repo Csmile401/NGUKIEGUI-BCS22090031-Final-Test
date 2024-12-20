@@ -1,0 +1,14 @@
+﻿namespace NGU_KIE_GUI_BCS22090031_FinalTest_Question_2
+{
+    public partial class MainPage : ContentPage
+    {
+        int count = 0;
+
+        public MainPage()
+        {
+            InitializeComponent();
+        }
+
+    }
+
+}

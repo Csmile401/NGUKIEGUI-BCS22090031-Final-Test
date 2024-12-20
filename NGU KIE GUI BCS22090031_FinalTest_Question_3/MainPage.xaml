@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:vm="clr-namespace:NGU_KIE_GUI_BCS22090031_FinalTest_Question_3.View"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="NGU_KIE_GUI_BCS22090031_FinalTest_Question_3.MainPage"
+             Title="PostRecord">
+
+    <ScrollView>
+        <StackLayout>
+            <!-- Add Post Section -->
+            <Entry Placeholder="Title" Text="{Binding Title}" Margin="10" />
+            <Editor Placeholder="Body" Text="{Binding Body}" HeightRequest="100" Margin="10" />
+            <Button Text="Save" Command="{Binding AddPostCommand}" BackgroundColor="Blue" TextColor="White" Margin="10" />
+
+            <!-- Post List -->
+            <CollectionView ItemsSource="{Binding Posts}" Margin="10">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10" Margin="5" BorderColor="Gray" CornerRadius="5">
+                            <StackLayout>
+                                <Label Text="{Binding Title}" FontAttributes="Bold" />
+                                <Label Text="{Binding Body}" FontSize="Small" />
+                                <Button Text="Delete"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type vm:PostViewModel}}, Path=DeletePostCommand}"
+                                        CommandParameter="{Binding .}"
+                                        BackgroundColor="Red"
+                                        TextColor="White" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

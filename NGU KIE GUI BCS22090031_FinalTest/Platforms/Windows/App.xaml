@@ -1,0 +1,8 @@
+﻿<maui:MauiWinUIApplication
+    x:Class="NGU_KIE_GUI_BCS22090031_FinalTest.WinUI.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:maui="using:Microsoft.Maui"
+    xmlns:local="using:NGU_KIE_GUI_BCS22090031_FinalTest.WinUI">
+
+</maui:MauiWinUIApplication>
